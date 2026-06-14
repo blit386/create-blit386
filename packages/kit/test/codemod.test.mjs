@@ -58,10 +58,16 @@ test('renames configure() object keys but not the already-new name', () => {
     assert.equal(applyRenames(already, renames).changed, false, 'the new key name must be left alone');
 });
 
-test('renames bootstrap option keys including the ID casing fix', () => {
-    const before = 'bootstrap(Game, { canvasId: "c", containerId: "wrap", waitForDOMReady: true });';
-    const after = 'bootstrap(Game, { canvasID: "c", containerID: "wrap", isWaitingForDOMReady: true });';
-    assert.equal(applyRenames(before, renames).text, after);
+test('flags generic bootstrap option keys for review instead of renaming them', () => {
+    // canvasId / containerId / waitForDOMReady are generic enough to appear on unrelated objects, so they
+    // are reported, not auto-rewritten.
+    const input = 'bootstrap(Game, { canvasId: "c", containerId: "wrap", waitForDOMReady: true });';
+    const result = applyRenames(input, renames);
+
+    assert.equal(result.changed, false, 'generic bootstrap keys must not be auto-renamed');
+
+    const froms = result.review.map((hit) => hit.rename.from).sort();
+    assert.deepEqual(froms, ['canvasId', 'containerId', 'waitForDOMReady']);
 });
 
 test('auto-renames distinctive method names', () => {

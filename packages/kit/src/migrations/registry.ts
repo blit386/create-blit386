@@ -12,9 +12,10 @@ import type { Migration } from './types';
 /**
  * Migrations shipped with this kit, oldest first.
  *
- * Safety: `BT.*` calls and object keys are receiver- or colon-anchored, so they auto-apply. Bare method renames whose
- * old name is a common English word (`equals`, `contains`, `intersects`, `tick`) are marked `review` - they could match
- * unrelated code, so they are reported rather than rewritten.
+ * Safety: `BT.*` calls and the engine's distinctive object keys (`overlay*`, `detectDroppedFrames`) auto-apply. Renames
+ * whose old name is generic enough to appear in unrelated code - common method words (`equals`, `contains`,
+ * `intersects`, `tick`) and generic bootstrap keys (`canvasId`, `containerId`, `waitForDOMReady`) - are marked `review`:
+ * located and reported with a suggestion, but never rewritten automatically.
  */
 export const MIGRATIONS: readonly Migration[] = [
     {
@@ -49,10 +50,29 @@ export const MIGRATIONS: readonly Migration[] = [
                 safety: 'auto',
             },
 
-            // BootstrapOptions fields (distinctive object keys).
-            { from: 'canvasId', to: 'canvasID', kind: 'objectKey', safety: 'auto' },
-            { from: 'containerId', to: 'containerID', kind: 'objectKey', safety: 'auto' },
-            { from: 'waitForDOMReady', to: 'isWaitingForDOMReady', kind: 'objectKey', safety: 'auto' },
+            // BootstrapOptions fields. These keys are generic enough to appear on unrelated objects, so they are
+            // reported for review rather than rewritten globally.
+            {
+                from: 'canvasId',
+                to: 'canvasID',
+                kind: 'objectKey',
+                safety: 'review',
+                note: 'bootstrap() option; "canvasId" is a generic key, so confirm the context before renaming.',
+            },
+            {
+                from: 'containerId',
+                to: 'containerID',
+                kind: 'objectKey',
+                safety: 'review',
+                note: 'bootstrap() option; "containerId" is a generic key, so confirm the context before renaming.',
+            },
+            {
+                from: 'waitForDOMReady',
+                to: 'isWaitingForDOMReady',
+                kind: 'objectKey',
+                safety: 'review',
+                note: 'bootstrap() option; confirm the context before renaming.',
+            },
 
             // Class method aliases. Distinctive names auto-apply; common-word names need review.
             { from: 'isIndexized', to: 'isIndexed', kind: 'method', safety: 'auto', note: 'SpriteSheet' },

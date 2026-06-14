@@ -5,7 +5,7 @@
  * (and a kind nudge first if the project is not saved with git). See `../migrations` for the data and codemod engine.
  */
 
-import { readdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, readdirSync, readFileSync, statSync, writeFileSync } from 'node:fs';
 import { join, relative } from 'node:path';
 
 import { findProjectRoot, installedVersion, isGitRepo } from '../env';
@@ -75,12 +75,14 @@ function collectFiles(dir: string, acc: string[]): string[] {
 /** Find the files to scan: prefer `src/`, fall back to the whole project root (skipping build/dependency/dot folders). */
 function sourceFiles(root: string): string[] {
     const srcDir = join(root, 'src');
-    try {
+
+    // Prefer src/ only when it really is a directory; otherwise scan the whole project. Genuine read
+    // errors (permissions, etc.) are left to propagate rather than being masked by a blanket fallback.
+    if (existsSync(srcDir) && statSync(srcDir).isDirectory()) {
         return collectFiles(srcDir, []);
-    } catch {
-        // No src/ directory - scan from the root instead (skip dirs still apply).
-        return collectFiles(root, []);
     }
+
+    return collectFiles(root, []);
 }
 
 /** Render one hit as a two-line diff (red old, green new). */

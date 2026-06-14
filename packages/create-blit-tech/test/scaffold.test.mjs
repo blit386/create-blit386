@@ -754,7 +754,7 @@ const GAME_WITH_OLD_NAMES = [
     '',
     'class Game {',
     '    configure() {',
-    "        return { overlayEnabled: true, canvasId: 'game' };",
+    '        return { overlayEnabled: true };',
     '    }',
     '    update() {',
     '        if (BT.buttonDown(BT.BTN_A)) this.fire();',
@@ -825,7 +825,6 @@ test('blit migrate --write rewrites safe names and reports ambiguous ones', { sk
         const rewritten = readFileSync(gamePath, 'utf8');
         assert.ok(rewritten.includes('BT.isDown('), 'BT.buttonDown should be renamed to BT.isDown');
         assert.ok(rewritten.includes('isOverlayEnabled:'), 'overlayEnabled key should be renamed');
-        assert.ok(rewritten.includes('canvasID:'), 'canvasId key should be renamed');
         assert.ok(!rewritten.includes('buttonDown'), 'no old BT name should remain');
 
         // The ambiguous .equals( call is left for review, not rewritten.
