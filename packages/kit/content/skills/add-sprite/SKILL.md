@@ -1,3 +1,10 @@
+---
+name: add-sprite
+description:
+  Load a PNG sprite sheet into the palette and draw it, whole image or single frames. Use whenever the user wants an
+  image, character, tile, or animated sprite on screen instead of plain shapes.
+---
+
 # Add a sprite
 
 Load a PNG sprite sheet, put its colors into the palette, and draw pieces of it.

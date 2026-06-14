@@ -1,3 +1,11 @@
+---
+name: migrate
+description:
+  Update a game's code after a Blit-Tech upgrade renamed parts of the API. Use this when 'blit upgrade' or 'blit
+  migrate' reports names that need a closer look, when the game breaks after updating Blit-Tech, or when the user says
+  'update my game to the new version' or 'fix the renamed functions'.
+---
+
 # Update Blit-Tech API names
 
 Update a game after a Blit-Tech upgrade renamed parts of the API: let `blit migrate` make the safe renames, then handle

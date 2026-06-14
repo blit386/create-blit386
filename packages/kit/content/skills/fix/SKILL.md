@@ -1,3 +1,11 @@
+---
+name: fix
+description:
+  Diagnose and fix a Blit-Tech game error using the local docs. Use this whenever the game crashes, shows a blank or
+  black screen, throws an error in the browser console, freezes, or behaves unexpectedly, even if the user only says 'it
+  is broken', 'nothing shows up', or 'why is this not working'.
+---
+
 # Fix a runtime error
 
 Diagnose and fix a Blit-Tech game error using the local docs.

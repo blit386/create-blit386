@@ -1,3 +1,10 @@
+---
+name: scroll-with-camera
+description:
+  Scroll a world larger than the screen using the global camera offset and keep it clamped inside the world bounds. Use
+  for side-scrollers, top-down maps, or any level bigger than the screen that should follow the player.
+---
+
 # Scroll with a camera
 
 Move a single global offset so a world larger than the screen scrolls, then keep it inside the world's edges.

@@ -1,3 +1,10 @@
+---
+name: save-a-screenshot
+description:
+  Capture the rendered frame as a PNG, either downloading it or getting a Blob. Use for a screenshot button, a 'share my
+  creation' feature, or exporting generated pixel art.
+---
+
 # Save a screenshot
 
 Capture the rendered frame as a PNG - download it, or get a Blob to use yourself.

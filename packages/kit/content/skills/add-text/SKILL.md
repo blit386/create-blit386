@@ -1,3 +1,10 @@
+---
+name: add-text
+description:
+  Draw text with the built-in system font or a loaded .btfont bitmap font. Use for scores, labels, titles, dialog, a
+  HUD, or any on-screen words, including centering or right-aligning text.
+---
+
 # Add text
 
 Show text with the built-in font (no setup), or load a custom bitmap font.

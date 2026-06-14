@@ -1,3 +1,10 @@
+---
+name: add-crt-effect
+description:
+  Stack fullscreen post-process effects (CRT curvature, scanlines, bloom, glitch) on top of the finished frame, which
+  runs on WebGPU only. Use for a retro CRT look, screen glitches, bloom or glow, or any whole-screen filter.
+---
+
 # Add a CRT or post-process effect
 
 Stack fullscreen effects (CRT curvature, scanlines, bloom, glitch) on top of the finished frame. These run on WebGPU

@@ -1,3 +1,10 @@
+---
+name: read-keyboard
+description:
+  Read keyboard keys and face buttons in update(). Use for keyboard movement, jumping, menus, typed text, or remapping
+  keys, including raw key codes like 'KeyW' and the arrow-keys-to-D-pad mapping.
+---
+
 # Read the keyboard
 
 Read keys and face buttons in `update()`. Arrow keys and Space already map to the D-pad and `BTN_A`.

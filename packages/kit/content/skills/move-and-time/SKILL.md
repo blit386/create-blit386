@@ -1,3 +1,11 @@
+---
+name: move-and-time
+description:
+  Move things smoothly and schedule actions using the engine frame clock, the Timer helper, and easing. Use for
+  movement, timers, cooldowns, spawn intervals, animation frames, or anything that should happen 'every N frames' or
+  'over N seconds'.
+---
+
 # Move and time things
 
 Use the engine's frame clock to move things smoothly, repeat actions on a schedule, and ease motion.

@@ -1,3 +1,11 @@
+---
+name: structure-a-game
+description:
+  Show the shape of a Blit-Tech game (configure, init, update, render) and set the expectation that the engine renders
+  and reads input while you write physics, collision, enemies, scenes, and sound yourself. Use when starting a new game
+  or when the user asks how to add a player, collision, or enemies and might expect built-in systems.
+---
+
 # Structure a game
 
 Blit-Tech draws pixels and reads input. It does NOT include physics, collision, enemies, scenes, or sound - you write

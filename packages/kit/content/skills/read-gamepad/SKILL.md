@@ -1,3 +1,10 @@
+---
+name: read-gamepad
+description:
+  Read gamepad face buttons, shoulders, analog sticks, and triggers from up to four controllers. Use for controller
+  support, analog movement, or multiplayer input.
+---
+
 # Read a gamepad
 
 Read face buttons, shoulders, sticks, and triggers from up to four controllers.

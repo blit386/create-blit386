@@ -1,3 +1,11 @@
+---
+name: animate-the-palette
+description:
+  Animate palette slots for motion and mood without redrawing anything, using cycling, fading, flashing, and swapping.
+  Use for flowing water or fire, day-night transitions, hit flashes, theme switches, or any 'the whole screen shifts
+  color' effect.
+---
+
 # Animate the palette
 
 Create motion and mood without redrawing anything by animating palette slots: cycling, fading, flashing, swapping.

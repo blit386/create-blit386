@@ -1,3 +1,10 @@
+---
+name: show-debug-overlay
+description:
+  Turn on and feed the engine's built-in debug overlay (FPS, backend, resolution, your own rows, palette grid, timing
+  chart). Use to see FPS and timings, show live game values while developing, or add a palette or timing inspector.
+---
+
 # Show the debug overlay
 
 The engine draws a built-in overlay (FPS, backend, resolution, and your own rows). Turn parts on in `configure()` and

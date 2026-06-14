@@ -1,3 +1,10 @@
+---
+name: draw-shapes
+description:
+  Draw rectangles, lines, and single pixels and clear the screen using palette slots. Use whenever the user wants boxes,
+  outlines, lines, dots, or a background color, or says 'draw a ...'.
+---
+
 # Draw shapes
 
 Draw rectangles, lines, and pixels, and clear the screen - all with palette slot numbers, all inside `render()`.
