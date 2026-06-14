@@ -2,8 +2,8 @@
  * Unit tests for the codemod engine and migration registry.
  *
  * These cover the risky part of `blit migrate`: anchored matching that must rename real API usage without touching
- * lookalike identifiers, and the auto-vs-review split. Requires `pnpm run build` first (imports the built dist
- * modules); CI runs the build before the tests.
+ * lookalike identifiers, and the auto-vs-review split. Imports the built dist modules; the package `pretest` script
+ * runs `pnpm run build` first, so `pnpm run test` works on a clean checkout.
  */
 
 import { strict as assert } from 'node:assert';

@@ -46,6 +46,7 @@
     "build": "tsup",
     "prepack": "tsup",
     "typecheck": "tsc --noEmit",
+    "pretest": "pnpm run build",
     "test": "node --test 'test/**/*.test.mjs'"
   },
   "devDependencies": {
