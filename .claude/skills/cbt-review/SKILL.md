@@ -20,7 +20,8 @@ Review current changes against create-blit-tech conventions and quality standard
 1. **Gather changes**
 
 - Run `git diff` (unstaged) and `git diff --cached` (staged)
-- List which files changed and what changed
+- Run `git ls-files --others --exclude-standard` to catch newly created (untracked) files that a diff alone misses
+- List which files changed and what changed, including the untracked files above
 
 2. **Run automated checks**
 

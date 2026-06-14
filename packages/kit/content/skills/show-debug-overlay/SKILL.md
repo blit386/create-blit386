@@ -46,7 +46,11 @@ overlayRows() {
 
 ```js
 update() {
-    if (this.levelStarted) BT.assignTag('Level 2'); // a labeled marker on the chart
+    // Drop the marker once, the moment the level starts - not every frame, or you stack duplicates.
+    if (this.levelStarted && !this.levelTagged) {
+        BT.assignTag('Level 2'); // a labeled marker on the chart
+        this.levelTagged = true;
+    }
 }
 ```
 

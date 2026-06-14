@@ -16,9 +16,9 @@ Use for a screenshot button, a "share my creation" feature, or exporting generat
 ## Download a PNG
 
 ```js
-update() {
+async update() {
     if (BT.isKeyPressed('KeyP')) {
-        BT.downloadFrame('my-art.png'); // prompts a browser download; filename optional
+        await BT.downloadFrame('my-art.png'); // async; prompts a browser download; filename optional
     }
 }
 ```
