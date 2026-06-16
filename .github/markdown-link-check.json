@@ -32,9 +32,6 @@
     },
     {
       "pattern": "^https?://github\\.com/blit386/"
-    },
-    {
-      "pattern": "^https?://github\\.com/vancura/create-blit386"
     }
   ],
   "replacementPatterns": [

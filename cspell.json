@@ -40,7 +40,7 @@
     "*.min.js",
     ".git",
     ".pnpm-store",
-    "CREATE_BLIT_TECH_DESIGN.md",
+    "CREATE_BLIT386_DESIGN.md",
     "cspell.json",
     "dist",
     "node_modules",

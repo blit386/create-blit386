@@ -20,7 +20,7 @@
 > (Round 18) and the clean-merge drift fix (Round 19), plus a packaging-metadata pass (repository/bugs/homepage, author
 > object, keywords). End-to-end smoke test from npm passed (`blit doctor` green; engine `1.1.1` compatible with kit
 > `^1.1.1`; 7 kit files up to date). `BLIT386_RANGE` stays `^1.1.1`. Release notes: the GitHub Release at
-> <https://github.com/vancura/create-blit386/releases/tag/1.0.0>. **Note:** `main` is protected, so releases land
+> <https://github.com/blit386/create-blit386/releases/tag/1.0.0>. **Note:** `main` is protected, so releases land
 > through a PR and the tag is created on the merged commit (not the pre-merge branch SHA).
 >
 > **Release status: 1.1.0 SHIPPED (2026-06-14).** Minor bump over 1.0.0, bundling everything merged to `main` since the
@@ -30,7 +30,7 @@
 > Claude keeping skill YAML frontmatter and Cursor commands stripping it. Both packages published to npm at `1.1.0`; the
 > scaffolder manifest pins `/kit: 1.1.0` (pnpm `workspace:*` rewrite confirmed). Landed via **PR #22** (squash) to
 > `main`; annotated git tag **`1.1.0`** (no `v` prefix) on merged commit `a9e77fd`. `engineRange` and `BLIT386_RANGE`
-> stay `^1.1.1`. Release notes: GitHub Release at <https://github.com/vancura/create-blit386/releases/tag/1.1.0> and
+> stay `^1.1.1`. Release notes: GitHub Release at <https://github.com/blit386/create-blit386/releases/tag/1.1.0> and
 > `RELEASE.md` in the repo.
 >
 > **Dogfood finding (Round 15, still holds):** the kit IR is game-author altitude; the `blit386` / `blit386-demos` repos
@@ -45,7 +45,7 @@
 > yarn for a freshly scaffolded project (bun intentionally out of scope; see section 7). **Still open:** flip the
 > engine's `docs/deprecations.md` to be generated FROM this data (cross-repo, currently mirrored by hand), and the
 > remaining section 7 verification TODOs (StackBlitz boot, Windows, iPad/Safari). Repo:
-> <https://github.com/vancura/create-blit386> (public). Owner: Václav (vancura). First external user: Filipek. Started:
+> <https://github.com/blit386/create-blit386> (public). Owner: Václav (vancura). First external user: Filipek. Started:
 > 2026-06-07. Purpose: shared source of truth for the BLIT386 project scaffolder. We return to this across sessions so
 > we do not lose decisions, findings, or deferred ideas.
 
@@ -400,10 +400,10 @@ in phase 2.
 - [x] Create the free `blit386` npm org. Done 2026-06-07: npmjs.com/org/blit386 is live; engine package left unscoped.
       Steps in section 10.
 - [ ] Manually confirm a Vite + blit386 project boots in a StackBlitz WebContainer and renders (WebGPU or software
-      fallback). 30 minutes. Record result here. → [#24](https://github.com/vancura/create-blit386/issues/24)
+      fallback). 30 minutes. Record result here. → [#24](https://github.com/blit386/create-blit386/issues/24)
 - [ ] Confirm Safari on iPadOS 26 runs a scaffolded game (WebGPU or fallback). Requires touch input in Catcher first
       (phase 1.x) or the game is technically rendering but unplayable. →
-      [#25](https://github.com/vancura/create-blit386/issues/25)
+      [#25](https://github.com/blit386/create-blit386/issues/25)
 - [x] Verify `npx blit run` / `npx blit doctor` work in a freshly scaffolded project under each detected package
       manager - the docs now promise the `npx` form (D12). DONE 2026-06-14 (macOS, Node 26.3.0) for npm, pnpm, and yarn.
       Tested against published `create-blit386@1.0.0` -> `/kit@1.0.0` + `blit386@1.1.1`. For each manager `blit doctor`
@@ -418,7 +418,7 @@ in phase 2.
       installs 1.0.0 (auto-recorded in `minimumReleaseAgeExclude`) and `doctor`/`run` both pass.
 - [ ] Scaffold and run a game on **Windows** (PowerShell + cmd): wizard, `git init` absent-git path, install,
       `npm run dev`, `npx blit doctor`. Most beginners are on Windows and nothing has been tested there. Record result
-      here. → [#23](https://github.com/vancura/create-blit386/issues/23)
+      here. → [#23](https://github.com/blit386/create-blit386/issues/23)
 - [x] Prototype `blit agents sync` from the canonical kit IR (phase 2), implementing the ownership model in 4.10. Done
       2026-06-13 (Round 15): full write path in `packages/kit/src/commands/agents.ts` + generate-to-memory
       `packages/kit/src/adapters.ts`, manifest `vars` for deterministic regeneration, git three-way merge + `.new`
@@ -554,10 +554,10 @@ Code, TODO (each is small and independently shippable):
   shipped kit-side (auto vs review split). **Round 22:** AI migration skill (`content/skills/migrate/`) ships into
   generated games for Claude and Cursor, teaching the assistant to apply `--write` autos and resolve `review` hits by
   receiver type. Remaining: generate `deprecations.md` from this data (cross-repo). →
-  [#26](https://github.com/vancura/create-blit386/issues/26)
+  [#26](https://github.com/blit386/create-blit386/issues/26)
 - Auto-stamp `blitTech.engineRange` during release + kit docs drift detection CI (replaces the original "generate kit
   docs FROM engine `docs/api-*.md`" plan; full prose generation is not feasible — see issue for rationale). →
-  [#27](https://github.com/vancura/create-blit386/issues/27)
+  [#27](https://github.com/blit386/create-blit386/issues/27)
 - [x] More game-author skills. **Round 23:** shipped 14 capability skills in `content/skills/` covering the full
       renderer/input/palette/timing/post-process surface (`structure-a-game`, `draw-shapes`, `add-sprite`, `add-text`,
       `use-palette`, `animate-the-palette`, `move-and-time`, `scroll-with-camera`, `read-keyboard`, `read-pointer`,
@@ -567,14 +567,14 @@ Code, TODO (each is small and independently shippable):
 **Phase 4 - "Reach":**
 
 - StackBlitz one-click (after the section 7 verify); iPad path. →
-  [#28](https://github.com/vancura/create-blit386/issues/28) (blocked by
-  [#24](https://github.com/vancura/create-blit386/issues/24))
+  [#28](https://github.com/blit386/create-blit386/issues/28) (blocked by
+  [#24](https://github.com/blit386/create-blit386/issues/24))
 - More agents (Zed, Gemini CLI, Windsurf) - cheap once the pipeline exists. →
-  [#29](https://github.com/vancura/create-blit386/issues/29) (umbrella; sub-issues:
-  [#30](https://github.com/vancura/create-blit386/issues/30) research,
-  [#31](https://github.com/vancura/create-blit386/issues/31) Zed,
-  [#32](https://github.com/vancura/create-blit386/issues/32) Gemini CLI,
-  [#33](https://github.com/vancura/create-blit386/issues/33) Windsurf)
+  [#29](https://github.com/blit386/create-blit386/issues/29) (umbrella; sub-issues:
+  [#30](https://github.com/blit386/create-blit386/issues/30) research,
+  [#31](https://github.com/blit386/create-blit386/issues/31) Zed,
+  [#32](https://github.com/blit386/create-blit386/issues/32) Gemini CLI,
+  [#33](https://github.com/blit386/create-blit386/issues/33) Windsurf)
 
 **Separate product (later):** Ambilab (ambilab.games) hosted editor + game hosting; `blit publish` seam (section 6).
 
@@ -603,7 +603,7 @@ Code, TODO (each is small and independently shippable):
 Status (verified 2026-06-14 against the npm registry): **`/kit@1.1.0`** and **`create-blit386@1.1.0`** are published and
 live (`dist-tags.latest = 1.1.0` on both). Prior releases: `0.1.0` / `0.1.1`, then **`1.0.0`** (2026-06-14), then
 **`1.1.0`** (2026-06-14; migrate codemods + game-author skills). Git tag **`1.1.0`** (no `v` prefix) on merged commit
-`a9e77fd`; GitHub Release at <https://github.com/vancura/create-blit386/releases/tag/1.1.0>; release notes in repo
+`a9e77fd`; GitHub Release at <https://github.com/blit386/create-blit386/releases/tag/1.1.0>; release notes in repo
 `RELEASE.md`. Next publish: bump both packages, preflight, kit first, scaffolder second (see `PUBLISHING.md`).
 
 Procedure (repeat for each release; bump versions first - a version, once published, is permanent):
@@ -646,7 +646,7 @@ before scaffolder; with 2FA publish one package at a time (each needs a fresh OT
   npm publish procedure (section 11). Began publishing: `/kit@0.1.0` is up (read-API propagating); `create-blit386` to
   follow. Repo at `create-blit386/` is git-init'd; initial commit message drafted via `/commit-msg` (not yet committed
   by Claude).
-- 2026-06-09: Round 8. Repo committed and pushed to GitHub: <https://github.com/vancura/create-blit386> (public).
+- 2026-06-09: Round 8. Repo committed and pushed to GitHub: <https://github.com/blit386/create-blit386> (public).
 - 2026-06-12: Round 9. Design review (all-audiences pass: beginners, experts, no-AI, AI, agents). New decisions D11
   (pre-Node onboarding lives outside the project; StackBlitz leads once verified), D12 (`npx blit ...` everywhere;
   README leads with `npm run dev`), D13 (sync ownership model - full spec in new section 4.10), D14 (kit declares a
@@ -806,7 +806,7 @@ before scaffolder; with 2FA publish one package at a time (each needs a fresh OT
   Verified: preflight green (22 tests), both publish dry-runs, packed tarball pins `/kit: 1.0.0`. After the owner
   published (kit first, then scaffolder), confirmed `npm view` shows both at `1.0.0` (`latest`) and an end-to-end
   `npm create blit386@latest` smoke test passed (`blit doctor` green, engine `1.1.1` compatible with kit `^1.1.1`).
-  Release notes live in the GitHub Release (<https://github.com/vancura/create-blit386/releases/tag/1.0.0>). Saved a
+  Release notes live in the GitHub Release (<https://github.com/blit386/create-blit386/releases/tag/1.0.0>). Saved a
   workspace memory that `main` is always protected. The earlier "1.0.0 deferred / reverted bump / `v1.0.0` tag" notes
   are now superseded.
 - 2026-06-14: Round 19. **Resolved the kit-owned clean-merge drift wrinkle** (flagged since Round 17). **Decision:** a
