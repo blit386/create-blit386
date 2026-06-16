@@ -55,6 +55,10 @@ function patternFor(rename: Rename): RegExp {
         return new RegExp(`(?<![\\w$])${from}(?=\\s*:)`, 'g');
     }
 
+    if (rename.kind === 'importPath') {
+        return new RegExp(`(?<=['"])${from}(?=['"])`, 'g');
+    }
+
     return new RegExp(`\\.${from}(?=\\s*\\()`, 'g');
 }
 
