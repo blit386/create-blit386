@@ -120,6 +120,18 @@ test('migrationsThrough includes the 1.x rename migration and excludes future on
     assert.equal(migrationsThrough('0.9.0').length, 0, 'does not apply below its since version');
 });
 
+test('applyRenames rewrites importPath specifiers without a leading dot', () => {
+    const importPathRename = [{ from: 'blit-tech', to: 'blit386', kind: 'importPath', safety: 'auto' }];
+
+    const esm = "import { BT } from 'blit-tech';";
+    const cjs = "const bt = require('blit-tech');";
+    const scoped = "import { BT } from 'blit-tech-extra';";
+
+    assert.equal(applyRenames(esm, importPathRename).text, "import { BT } from 'blit386';", 'ESM import rewrites');
+    assert.equal(applyRenames(cjs, importPathRename).text, "const bt = require('blit386');", 'CJS require rewrites');
+    assert.equal(applyRenames(scoped, importPathRename).text, scoped, 'longer package name is not touched');
+});
+
 test('every rename declares the fields the engine needs', () => {
     for (const migration of MIGRATIONS) {
         for (const rename of migration.renames) {

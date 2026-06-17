@@ -1,6 +1,14 @@
 /** `blit upgrade` - update blit386 to the latest version, with a kind nudge if the project is not under git. */
 
-import { detectPackageManager, findProjectRoot, installedVersion, isGitRepo, pmAddArgs, runPm } from '../env';
+import {
+    detectPackageManager,
+    findProjectRoot,
+    installedVersion,
+    isGitRepo,
+    pmAddArgs,
+    pmRemoveArgs,
+    runPm,
+} from '../env';
 import { DEPRECATIONS_URL, NO_GIT_NAG, ui } from '../messages';
 import { confirm } from '../prompt';
 import { migrateProject } from './migrate';
@@ -39,6 +47,11 @@ export async function runUpgrade(): Promise<void> {
     const before = installedVersion(root, 'blit386');
     const pm = detectPackageManager(root);
     out(ui.info(`Updating blit386 with ${pm}...`));
+
+    if (installedVersion(root, 'blit-tech')) {
+        out(ui.info('Removing legacy blit-tech package...'));
+        runPm(root, pm, pmRemoveArgs(pm, 'blit-tech'));
+    }
 
     const status = runPm(root, pm, pmAddArgs(pm, 'blit386@latest'));
     if (status !== 0) {

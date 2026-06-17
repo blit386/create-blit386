@@ -761,7 +761,7 @@ test('blit agents sync does not flag a clean-merged kit file as drift', { skip: 
 });
 
 const GAME_WITH_OLD_NAMES = [
-    "import { bootstrap, BT } from 'blit386';",
+    "import { bootstrap, BT } from 'blit-tech';",
     '',
     'class Game {',
     '    configure() {',
@@ -873,7 +873,8 @@ test('scaffolds a TypeScript project when language is ts', () => {
         const pkg = JSON.parse(readFileSync(join(project, 'package.json'), 'utf8'));
         assert.ok(pkg.devDependencies?.typescript, 'typescript should be a devDependency for TS projects');
         assert.ok(pkg.scripts?.typecheck, 'typecheck script should be present for TS projects');
-        assert.ok(!pkg.dependencies?.['blit386']?.includes('workspace:*'), 'no workspace:* in package.json');
+        assert.ok(pkg.dependencies?.['blit386'], 'blit386 should be a dependency');
+        assert.ok(!pkg.dependencies['blit386'].includes('workspace:*'), 'no workspace:* in blit386 dependency');
 
         // Entry file references should point to the .ts file.
         const html = readFileSync(join(project, 'index.html'), 'utf8');

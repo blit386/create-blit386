@@ -68,7 +68,7 @@ function replacementFor(rename: Rename): string {
         return `${rename.receiver ?? ''}.${rename.to}`;
     }
 
-    if (rename.kind === 'objectKey') {
+    if (rename.kind === 'objectKey' || rename.kind === 'importPath') {
         return rename.to;
     }
 

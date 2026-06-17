@@ -106,6 +106,11 @@ export function pmAddArgs(pm: PackageManager, pkg: string): string[] {
     return pm === 'npm' ? ['install', pkg] : ['add', pkg];
 }
 
+/** Argument list to remove a dependency (npm uses `uninstall`, the others use `remove`). */
+export function pmRemoveArgs(pm: PackageManager, pkg: string): string[] {
+    return pm === 'npm' ? ['uninstall', pkg] : ['remove', pkg];
+}
+
 /** Spawn the package manager inheriting stdio. Returns the exit code (1 if it could not start). */
 export function runPm(root: string, pm: PackageManager, args: string[]): number {
     const result = spawnSync(pm, args, {
