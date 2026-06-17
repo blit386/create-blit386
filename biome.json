@@ -15,6 +15,7 @@
       "packages/create-blit386/templates/**/*.js",
       "scripts/**/*.mjs",
       ".claude/**/*.json",
+      ".github/**/*.json",
       "*.json",
       "*.js",
       "commitlint.config.js"
