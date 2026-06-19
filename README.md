@@ -60,7 +60,13 @@ CI (`.github/workflows/ci.yml`) runs the same checks on every push and pull requ
 Phase 2 ("agents on tap") is complete: the JavaScript and TypeScript scaffolds, the Catcher starter game, local docs,
 and the `blit` CLI. When you choose an AI assistant in the wizard, the scaffolder generates its config (Claude or
 Cursor) from the kit's canonical content, and `npx blit agents sync` keeps those files current without clobbering your
-edits. `npx blit agents add <claude|cursor>` sets up an assistant later for a project that started without one. See the
-design doc in the parent workspace for the full roadmap.
+edits. `npx blit agents add <claude|cursor>` sets up an assistant later for a project that started without one. See
+[`CREATE_BLIT386_DESIGN.md`](CREATE_BLIT386_DESIGN.md) for the full roadmap.
 
 Publishing to npm is a deliberate, manual step and is not automated here.
+
+## Related
+
+- **Engine:** [blit386](https://github.com/blit386/blit386) - the palette-first WebGPU retro engine these games run on
+  ([npm](https://www.npmjs.com/package/blit386), [docs](https://github.com/blit386/blit386/tree/main/docs))
+- **Roadmap:** [`CREATE_BLIT386_DESIGN.md`](CREATE_BLIT386_DESIGN.md)
