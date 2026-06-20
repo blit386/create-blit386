@@ -16,6 +16,7 @@
       "scripts/**/*.mjs",
       ".claude/**/*.json",
       ".github/**/*.json",
+      ".zed/**/*.json",
       "*.json",
       "*.js",
       "commitlint.config.js"
