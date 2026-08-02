@@ -1,3 +1,9 @@
+> **This repository has moved.** Its content now lives in the [`blit386/blit386`](https://github.com/blit386/blit386)
+> monorepo, at [`packages/create-blit386`](https://github.com/blit386/blit386/tree/main/packages/create-blit386) (the
+> scaffolder) and [`packages/kit`](https://github.com/blit386/blit386/tree/main/packages/kit) (the kit content and
+> `blit` CLI). Full history is preserved there – this repo stays archived (read-only) so its original commit SHAs and
+> links keep working.
+
 # create-blit386
 
 [![create-blit386 on npm](https://img.shields.io/npm/v/create-blit386.svg?label=create-blit386)](https://www.npmjs.com/package/create-blit386)
